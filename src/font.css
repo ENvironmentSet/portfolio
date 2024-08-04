@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'GmarketSans';
+    src: url('/fonts/GmarketSans/GmarketSansMedium.woff2') format('woff2'),
+         url('/fonts/GmarketSans/GmarketSansMedium.ttf') format('truetype'),
+         local('Noto Sans KR');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GmarketSans';
+    src: url('/fonts/GmarketSans/GmarketSansLight.woff2') format('woff2'),
+         url('/fonts/GmarketSans/GmarketSansLight.ttf') format('truetype'),
+         local('Noto Sans KR');
+    font-weight: 100 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GmarketSans';
+    src: url('/fonts/GmarketSans/GmarketSansBold.woff2') format('woff2'),
+         url('/fonts/GmarketSans/GmarketSansBold.ttf') format('truetype'),
+         local('Noto Sans KR');
+    font-weight: bold;
+    font-display: swap;
+}
