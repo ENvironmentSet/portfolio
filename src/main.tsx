@@ -6,7 +6,7 @@ import { Global, css } from '@emotion/react'
 
 import './reset.css'
 import './font.css'
-import { Color } from './colors.ts';
+import { Color } from './colors.ts'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
