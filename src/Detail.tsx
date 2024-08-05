@@ -149,8 +149,8 @@ const DetailStyle = {
   navLink: css`
     color: ${Color.primaryText};
     
-    height: 1.2rem;
-    width: 1.2rem;
+    height: 1.5rem;
+    width: 1.5rem;
   `,
   main: css`
     overflow: scroll;
