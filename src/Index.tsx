@@ -1,7 +1,6 @@
 import { Children, ReactElement, useState, useEffect, useRef } from 'react'
 
 import { Link } from 'wouter'
-import { Content } from './contents/content.ts'
 
 import { css } from '@emotion/react'
 
@@ -15,8 +14,15 @@ import { IoDocumentSharp } from 'react-icons/io5'
 import { IoMdInformationCircle } from 'react-icons/io'
 import { highlightedButton, plainButton } from './buttons.tsx'
 
-type CardProps = Pick<Content, 'title' | 'thumbnail' | 'categories' | 'description' | 'stars'>
-                 & { onClick?: () => void, className?: string }
+interface CardProps {
+  title: string
+  thumbnail: string
+  categories: string[]
+  description: string
+  stars?: number
+  onClick?: () => void
+  className?: string
+}
 
 const CardStyle = {
   plane: css`
@@ -136,7 +142,15 @@ export const enum FilterTags {
   OSS
 }
 
-export type CardEntry = Pick<Content, 'key' | 'title' | 'thumbnail' | 'categories' | 'description' | 'stars' | 'filterTags'>
+interface CardEntry {
+  key: string
+  title: string
+  thumbnail: string
+  categories: string[]
+  description: string
+  stars?: number
+  filterTags: FilterTags[]
+}
 
 interface IndexProps {
   cardEntries: CardEntry[]
