@@ -74,6 +74,11 @@ const CardStyle = {
     
     display: flex;
     align-items: center;
+    
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
   `
 }
 
@@ -193,8 +198,9 @@ const IndexStyle = {
   `,
   searchButton: css`
     height: 1.5rem;
+    width: 1.5rem;
     
-    width: 3rem;
+    margin-left: 0.2rem;
   `,
   codeLink: css`
     font-size: 2rem;
@@ -208,11 +214,15 @@ const IndexStyle = {
   filterList: css`
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 0.5rem;
     
     list-style-type: none;
     
     padding: 0.7rem 1.5rem;
+    
+    @media (min-width: 800px) {
+      gap: 1.5rem;
+    }
   `,
   filterItem: css`
     flex-basis: 8rem;
@@ -327,16 +337,16 @@ function Index({ cardEntries }: IndexProps) {
       <main css={IndexStyle.contentBox}>
         <ul css={IndexStyle.filterList} ref={filterListRef}>
           <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.ALL)}>
-            <button css={filter === FilterTags.ALL ? highlightedButton : plainButton}><FiAlignJustify css={css`height: 1.3rem;`} />전체</button>
+            <button css={filter === FilterTags.ALL ? highlightedButton : plainButton}><FiAlignJustify css={css`height: 1.3rem; width: 1.3rem;`} />전체</button>
           </li>
           <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.TS)}>
-            <button css={filter === FilterTags.TS ? highlightedButton : plainButton}><SiTypescript />TS</button>
+            <button css={filter === FilterTags.TS ? highlightedButton : plainButton}><SiTypescript css={css`height: 1rem; width: 1rem;`} />TS</button>
           </li>
           <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.React)}>
-            <button css={filter === FilterTags.React ? highlightedButton : plainButton}><FaReact />React</button>
+            <button css={filter === FilterTags.React ? highlightedButton : plainButton}><FaReact css={css`height: 1.3rem; width: 1.3rem;`} />React</button>
           </li>
           <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.OSS)}>
-            <button css={filter === FilterTags.OSS ? highlightedButton : plainButton}><DiOpensource css={css`height: 1.3rem;`} />OSS</button>
+            <button css={filter === FilterTags.OSS ? highlightedButton : plainButton}><DiOpensource css={css`height: 1.3rem; width: 1.3rem;`} />OSS</button>
           </li>
         </ul>
         {
