@@ -198,9 +198,9 @@ const IndexStyle = {
   `,
   searchButton: css`
     height: 1.5rem;
-    width: 1.5rem;
+    width: 1.9rem;
     
-    margin-left: 0.2rem;
+    padding: 0 0.2rem;
   `,
   codeLink: css`
     font-size: 2rem;
