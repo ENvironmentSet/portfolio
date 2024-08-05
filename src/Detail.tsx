@@ -43,6 +43,7 @@ const ProfileStyle = {
   laptopTemperature: css`
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 0.2rem;
       
     height: 4rem;
