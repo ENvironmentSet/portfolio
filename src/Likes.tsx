@@ -24,14 +24,14 @@ const LikesStyle = {
     
     position: relative;
     
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   `,
   backButton: css`
     position: absolute;
     left: 1.8rem;
     
-    height: 1.3rem;
-    width: 1.3rem;
+    height: 1.4rem;
+    width: 1.4rem;
   `,
   main: css`
     height: 90%;
