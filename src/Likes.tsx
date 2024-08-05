@@ -6,7 +6,7 @@ import { CardList, Card } from './Index.tsx'
 import { css } from '@emotion/react'
 
 import { IoIosArrowBack } from 'react-icons/io'
-import { Color } from './colors.ts'
+import Color from './colors.ts'
 
 const LikesStyle = {
   page: css`

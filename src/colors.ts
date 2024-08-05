@@ -1,4 +1,4 @@
-export const enum Color {
+const enum Color {
   background = '#19191B',
   foreground = '#B3B2B6',
   primaryText = '#E6E6EA',
@@ -6,3 +6,5 @@ export const enum Color {
   highlight = '#ED5C07',
   elementBackground = '#121214'
 }
+
+export default Color

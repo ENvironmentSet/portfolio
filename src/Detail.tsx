@@ -6,7 +6,7 @@ import { css } from '@emotion/react'
 import profilePicture from './assets/profile.jpeg'
 import { IoIosArrowBack, IoIosHome, IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
 
-import { Color } from './colors.ts'
+import Color from './colors.ts'
 import { Contents } from './contents/content.ts'
 import { highlightedButton } from './buttons.tsx'
 

@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 
-import { Color } from './colors.ts'
+import Color from './colors.ts'
 
 export const plainButton = css`
   background-color: ${Color.elementBackground};

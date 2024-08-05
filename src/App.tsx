@@ -8,7 +8,7 @@ import { Contents } from './contents/content.ts'
 import index from './contents/index.ts'
 
 import { css, Global } from '@emotion/react'
-import { Color } from './colors.ts'
+import Color from './colors.ts'
 
 import './reset.css'
 import './font.css'

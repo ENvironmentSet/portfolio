@@ -4,7 +4,7 @@ import { Link, useLocation } from 'wouter'
 
 import { css } from '@emotion/react'
 
-import { Color } from './colors.ts'
+import Color from './colors.ts'
 import { GoStar, GoSearch } from 'react-icons/go'
 import { FiAlignJustify } from 'react-icons/fi'
 import { SiTypescript } from 'react-icons/si'
