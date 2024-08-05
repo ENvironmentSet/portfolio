@@ -81,7 +81,7 @@ const CardStyle = {
   `
 }
 
-function Card({ title, thumbnail, categories, description, stars, className, onClick }: CardProps) {
+export function Card({ title, thumbnail, categories, description, stars, className, onClick }: CardProps) {
   return (
     <div css={CardStyle.plane} className={className} onClick={onClick}>
       <img css={CardStyle.thumbnail} src={thumbnail} />
@@ -123,7 +123,7 @@ const CardListStyle = {
   `
 }
 
-function CardList({ children, className }: CardListProps) {
+export function CardList({ children, className }: CardListProps) {
   return (
     <ol css={CardListStyle.list} className={className}>
       {
@@ -371,7 +371,7 @@ function Index({ cardEntries }: IndexProps) {
               </Link>
             </li>
             <li css={IndexStyle.navItem}>
-              <Link to='/' asChild>
+              <Link to='/likes' asChild>
                 <button>
                   <FaHeart />
                   <span>찜 목록</span>

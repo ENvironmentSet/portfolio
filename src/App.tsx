@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Switch, Route, Redirect } from 'wouter'
 import Index from './Index'
 import Detail from './Detail.tsx'
+import Likes from './Likes.tsx'
 
 import { Contents } from './contents/content.ts'
 import index from './contents/index.ts'
@@ -54,6 +55,7 @@ function App() {
               }
             }
           </Route>
+          <Route path='/likes'> <Likes /> </Route>
 
           <Route> <Redirect to='/' /> </Route>
         </Switch>
