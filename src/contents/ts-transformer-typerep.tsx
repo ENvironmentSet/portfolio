@@ -4,7 +4,7 @@ import { FilterTags } from '../Index.tsx'
 import tsTransformerTypeRepThumbnail from '../assets/tstransformertyperep-thumbnail-demo.png' //@TODO
 
 const tsTransformerTyperep: Content = {
-  key: 'ts-transformer-typerep',
+  id: 'ts-transformer-typerep',
   title: 'ts-transformer-typerep',
   thumbnail: tsTransformerTypeRepThumbnail,
   categories: ['typescript', 'transformer'],

@@ -2,7 +2,7 @@ import { createContext, ReactNode } from 'react'
 import { FilterTags } from '../Index.tsx'
 
 export interface Content {
-  key: string
+  id: string
   title: string
   thumbnail: string
   categories: string[]

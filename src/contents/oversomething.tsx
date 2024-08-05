@@ -4,7 +4,7 @@ import { FilterTags } from '../Index.tsx'
 import oversomethingThumbnail from '../assets/oversomething-thumbnail-demo.png' //@TODO
 
 const oversomething: Content = {
-  key: 'oversomething',
+  id: 'oversomething',
   title: 'oversomething',
   thumbnail: oversomethingThumbnail,
   categories: ['gatsby', 'typescript'],

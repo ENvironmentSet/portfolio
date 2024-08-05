@@ -4,7 +4,7 @@ import { FilterTags } from '../Index.tsx'
 import hyogwaThumbnail from '../assets/hyogwa-thumbnail-demo.png' //@TODO
 
 const hyogwa: Content = {
-  key: 'hyogwa',
+  id: 'hyogwa',
   title: 'hyogwa',
   thumbnail: hyogwaThumbnail,
   categories: ['effect system', 'typescript'],
@@ -12,7 +12,7 @@ const hyogwa: Content = {
   description: 'Natural 🌿 effect system that fits TypeScript',
   filterTags: [FilterTags.ALL, FilterTags.TS, FilterTags.OSS],
   content: null, //@TODO
-  playground: '', //@TODO
+  playground: 'ashdaudhaud', //@TODO
   isLiked: false
 }
 

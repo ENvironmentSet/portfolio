@@ -143,7 +143,7 @@ export const enum FilterTags {
 }
 
 interface CardEntry {
-  key: string
+  id: string
   title: string
   thumbnail: string
   categories: string[]
@@ -305,7 +305,7 @@ function Index({ cardEntries }: IndexProps) {
         return false
       }
     })
-    .map(({ key, ...props }) => <Card key={key} {...props} />)
+    .map(({ id, ...props }) => <Card key={id} {...props} />)
 
   useEffect(() => {
     if (filterListRef.current) {

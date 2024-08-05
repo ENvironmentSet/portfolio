@@ -4,7 +4,7 @@ import { FilterTags } from '../Index.tsx'
 import lambda2wasmThumbnail from '../assets/lambda2wasm-thumbnail-demo.png' //@TODO
 
 const lambda2wasm: Content = {
-  key: 'lambda2wasm',
+  id: 'lambda2wasm',
   title: 'lambda2wasm',
   thumbnail: lambda2wasmThumbnail,
   categories: ['compiler', 'web assembly'],
