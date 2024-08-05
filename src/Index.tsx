@@ -155,6 +155,7 @@ interface IndexProps {
 const IndexStyle = {
   page: css`
     height: 100vh;
+    height: 100dvh;
   `,
   header: css`
     height: 10%;
