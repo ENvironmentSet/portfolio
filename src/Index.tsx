@@ -1,6 +1,6 @@
 import { Children, ReactElement, useState, useEffect, useRef } from 'react'
 
-import { Link } from 'wouter'
+import { Link, useLocation } from 'wouter'
 
 import { css } from '@emotion/react'
 
@@ -81,9 +81,9 @@ const CardStyle = {
   `
 }
 
-function Card({ title, thumbnail, categories, description, stars, className }: CardProps) {
+function Card({ title, thumbnail, categories, description, stars, className, onClick }: CardProps) {
   return (
-    <div css={CardStyle.plane} className={className}>
+    <div css={CardStyle.plane} className={className} onClick={onClick}>
       <img css={CardStyle.thumbnail} src={thumbnail} />
       <h3 css={CardStyle.title}> {title} </h3>
       <ul css={CardStyle.categories}>
@@ -293,6 +293,7 @@ function Index({ cardEntries }: IndexProps) {
   const [filter, setFilter] = useState<FilterTags>(FilterTags.ALL)
   const [isFilterListVisible, setFilterListVisibility] = useState(true)
   const filterListRef = useRef<HTMLUListElement>(null)
+  const [, navigate] = useLocation()
 
   const cards: ReactElement[] = cardEntries
     .filter(({filterTags}) => filterTags.includes(filter))
@@ -305,7 +306,7 @@ function Index({ cardEntries }: IndexProps) {
         return false
       }
     })
-    .map(({ id, ...props }) => <Card key={id} {...props} />)
+    .map(({ id, ...props }) => <Card key={id} {...props} onClick={() => navigate(`/items/${id}`)} />)
 
   useEffect(() => {
     if (filterListRef.current) {
