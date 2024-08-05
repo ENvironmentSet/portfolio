@@ -1,8 +1,14 @@
+import { ReactNode, useContext, useEffect, useRef, useState } from 'react'
+import { Link } from 'wouter'
+
 import { css } from '@emotion/react'
 
 import profilePicture from './assets/profile.jpeg'
+import { IoIosArrowBack, IoIosHome, IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
 
 import { Color } from './colors.ts'
+import { Contents } from './contents/content.ts'
+import { highlightedButton } from './buttons.tsx'
 
 interface ProfileProps {
   className?: string
@@ -16,6 +22,8 @@ const ProfileStyle = {
     padding-bottom: 1rem;
     
     border-bottom: 1px solid ${Color.secondaryText};
+    
+    isolation: isolate;
   `,
   avatar: css`
     border-radius: 45px;
@@ -64,8 +72,6 @@ const ProfileStyle = {
     
     border: 2px solid ${Color.elementBackground};
     border-radius: 45px;
-    
-    z-index: 0;
   `,
   bar: css`
     position: absolute;
@@ -76,15 +82,13 @@ const ProfileStyle = {
     
     border: 2px solid ${Color.highlight};
     border-radius: 45px;
-    
-    z-index: 1;
   `,
   info: css`
     color: ${Color.secondaryText};
     font-weight: 300;
     font-size: 0.6rem;
     
-    margin-top: 0.1rem;
+    margin-top: 0.2rem;
     
     align-self: flex-end;
   `
@@ -109,3 +113,191 @@ function Profile({ className }: ProfileProps) {
     </div>
   )
 }
+
+interface DetailProps {
+  id: string
+  title: string
+  thumbnail: string
+  categories: string[]
+  content: ReactNode
+  playground?: string
+  isLiked: boolean
+}
+
+const DetailStyle = {
+  page: css`
+    height: 100vh;
+    height: 100dvh;
+  `,
+  header: css`
+    position: fixed;
+    
+    width: 100vw;
+    
+    background-color: transparent;
+    
+    z-index: 1;
+  `,
+  navList: css`
+    padding: 1rem;
+    
+    display: flex;
+    gap: 1.2rem;
+    
+    list-style-type: none;
+  `,
+  navLink: css`
+    color: ${Color.primaryText};
+    
+    height: 1.2rem;
+    width: 1.2rem;
+  `,
+  main: css`
+    overflow: scroll;
+    
+    height: 90%;
+  `,
+  thumbnail: css`
+    height: 50vh;
+    height: 50dvh;
+    width: 100%;
+    
+    object-fit: cover;
+  `, //@TODO How should I process images?
+  articleBox: css`
+    padding: 1rem;
+  `,
+  title: css`
+    margin-top: 1rem;
+  `,
+  categories: css`
+    padding-left: 0px;
+    
+    display: flex;
+    gap: 0.3rem;
+    
+    list-style-type: none;
+    
+    color: ${Color.secondaryText};
+    font-size: 0.8rem;
+    
+    margin-bottom: 1rem;
+  `,
+  footer: css`
+    height: 10%;
+    
+    border-top: 1px solid ${Color.secondaryText};
+    
+    padding: 0.8rem;
+    
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  `,
+  heart: css`
+    height: 3.8rem;
+    width: 3rem;
+    
+    border-right: 1px solid ${Color.secondaryText};
+    
+    padding: 1rem 1rem 1rem 0.2rem;
+    
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+  `,
+  playground: css`
+    margin-left: auto;
+    
+    padding: 0.6rem;
+    
+    font-weight: bold;
+  `
+}
+
+function Detail({ id: currentContentId, title, thumbnail, categories, content, playground, isLiked }: DetailProps) {
+  const [isThumbnailVisible, setThumbnailVisibility] = useState(true)
+  const thumbnailRef = useRef<HTMLImageElement>(null)
+  const { contents, setContents } = useContext(Contents)
+
+  useEffect(() => {
+    if (thumbnailRef.current) {
+      const observer = new IntersectionObserver(
+        entries => entries.map(({ intersectionRatio }) => setThumbnailVisibility(intersectionRatio <= 0.25)),
+        { threshold: [0.25] }
+      )
+
+      observer.observe(thumbnailRef.current)
+
+      return () => observer.disconnect()
+    }
+  })
+
+  return (
+    <div css={DetailStyle.page}>
+      <header
+        css={DetailStyle.header}
+        style={isThumbnailVisible ? { backgroundColor: Color.background, borderBottom: `1px solid ${Color.secondaryText}` } : {}}
+      >
+        <nav>
+          <ul css={DetailStyle.navList}>
+            <li>
+              <Link to='/'><IoIosArrowBack css={DetailStyle.navLink} /></Link>
+            </li>
+            <li>
+              <Link to='/'><IoIosHome css={DetailStyle.navLink} /></Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main css={DetailStyle.main}>
+        <img ref={thumbnailRef} css={DetailStyle.thumbnail} src={thumbnail} />
+        <div css={DetailStyle.articleBox}>
+          <Profile />
+          <article>
+            <h1 css={DetailStyle.title}>{title}</h1>
+            <ul css={DetailStyle.categories}>
+              {
+                categories.map((category, index, { length }) =>
+                  <li key={category}> {category}{index < length - 1 && ','} </li>
+                )
+              }
+            </ul>
+            {content}
+          </article>
+        </div>
+      </main>
+      <footer css={DetailStyle.footer}>
+        <span
+          onClick={() =>
+            setContents(contents.map(({ id, ...others }) =>
+              id === currentContentId
+                ? ({ id, ...others, isLiked: !others.isLiked })
+                : ({ id, ...others })
+            ))
+          }
+          data-is-liked={isLiked}
+          css={DetailStyle.heart}
+        >
+          {
+            isLiked ? <IoIosHeart /> : <IoIosHeartEmpty />
+          }
+        </span>
+        <p>
+          <b>면접 대기중</b>
+        </p>
+        {
+          playground &&
+            <Link to={playground} asChild>
+              <button css={[highlightedButton, DetailStyle.playground]}>
+                <b>체험해보기</b>
+              </button>
+            </Link>
+        }
+      </footer>
+    </div>
+  )
+}
+
+export default Detail

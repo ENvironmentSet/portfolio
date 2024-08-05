@@ -1,6 +1,9 @@
+import { useState } from 'react'
 import { Switch, Route, Redirect } from 'wouter'
 import Index from './Index'
+import Detail from './Detail.tsx'
 
+import { Contents } from './contents/content.ts'
 import index from './contents/index.ts'
 
 import { css, Global } from '@emotion/react'
@@ -31,16 +34,30 @@ const globalStyle = css`
 `
 
 function App() {
+  const [contents, setContents] = useState(index)
+
   return (
     <>
-      <Global
-        styles={globalStyle}
-      />
-      <Switch>
-        <Route path='/'> <Index cardEntries={index} /> </Route>
+      <Contents.Provider value={{ contents, setContents }}>
+        <Global
+          styles={globalStyle}
+        />
+        <Switch>
+          <Route path='/'> <Index cardEntries={index} /> </Route>
+          <Route path='/items/:id'>
+            {
+              ({ id: targetId }) => {
+                const content = contents.find(({ id }) => id === targetId)
 
-        <Route> <Redirect to='/' /> </Route>
-      </Switch>
+                if (content) return <Detail {...content} />
+                else return <Redirect to='/' />
+              }
+            }
+          </Route>
+
+          <Route> <Redirect to='/' /> </Route>
+        </Switch>
+      </Contents.Provider>
     </>
   )
 }
