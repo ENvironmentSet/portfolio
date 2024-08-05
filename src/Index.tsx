@@ -165,11 +165,13 @@ const IndexStyle = {
   header: css`
     height: 10%;
     
-    padding: 1rem;
+    padding: 1rem 1.7rem;
   `,
   actionList: css`
     display: flex;
+    justify-content: center;
     align-items: center;
+    gap: 0.7rem;
     
     padding-left: 0px;
     
@@ -189,18 +191,20 @@ const IndexStyle = {
     border-radius: 10px;
     border: 0px;
     
+    width: 100%;
+    
     :focus {
       outline: none;
       border: 2px solid ${Color.foreground};
     }
-    
-    flex-grow: 1;
   `,
   searchButton: css`
-    height: 1.5rem;
-    width: 1.9rem;
+    flex-shrink: 0;
     
-    padding: 0 0.2rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    
+    margin-left: 0.2rem;
   `,
   codeLink: css`
     font-size: 2rem;
@@ -322,14 +326,14 @@ function Index({ cardEntries }: IndexProps) {
     <div css={IndexStyle.page}>
       <header css={IndexStyle.header} style={isFilterListVisible ? {} : { borderBottom: `1px solid ${Color.secondaryText}`}}>
         <ul css={IndexStyle.actionList}>
-          <li css={[IndexStyle.actionItem, css`flex-grow: 1;`]}>
+          <li css={[IndexStyle.actionItem, css`flex-shrink: 0;`]}>
             <h1>곶감</h1>
           </li>
-          <li css={[IndexStyle.actionItem, css`flex-grow: 5;`]}>
+          <li css={[IndexStyle.actionItem, css`flex-grow: 1;`]}>
             <input onChange={({ target: { value } }) => setSearchQuery(value)} css={IndexStyle.searchBox} />
             <GoSearch css={IndexStyle.searchButton} />
           </li>
-          <li css={[IndexStyle.actionItem, css`flex-grow: 1;`]}>
+          <li css={[IndexStyle.actionItem, css`flex-shrink: 0;`]}>
             <a css={IndexStyle.codeLink} href='https://github.com/ENvironmentSet/portfolio'><FaGithub /></a>
           </li>
         </ul>
