@@ -192,7 +192,7 @@ const IndexStyle = {
     flex-grow: 1;
   `,
   searchButton: css`
-    font-size: 1.5rem;
+    height: 1.5rem;
     
     width: 3rem;
   `,
@@ -327,7 +327,7 @@ function Index({ cardEntries }: IndexProps) {
       <main css={IndexStyle.contentBox}>
         <ul css={IndexStyle.filterList} ref={filterListRef}>
           <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.ALL)}>
-            <button css={filter === FilterTags.ALL ? highlightedButton : plainButton}><FiAlignJustify css={css`font-size: 1.3rem;`} />전체</button>
+            <button css={filter === FilterTags.ALL ? highlightedButton : plainButton}><FiAlignJustify css={css`height: 1.3rem;`} />전체</button>
           </li>
           <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.TS)}>
             <button css={filter === FilterTags.TS ? highlightedButton : plainButton}><SiTypescript />TS</button>
@@ -336,7 +336,7 @@ function Index({ cardEntries }: IndexProps) {
             <button css={filter === FilterTags.React ? highlightedButton : plainButton}><FaReact />React</button>
           </li>
           <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.OSS)}>
-            <button css={filter === FilterTags.OSS ? highlightedButton : plainButton}><DiOpensource css={css`font-size: 1.3rem;`} />OSS</button>
+            <button css={filter === FilterTags.OSS ? highlightedButton : plainButton}><DiOpensource css={css`height: 1.3rem;`} />OSS</button>
           </li>
         </ul>
         {
