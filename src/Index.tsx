@@ -194,7 +194,7 @@ const IndexStyle = {
     
     :focus {
       outline: none;
-      border: 2px solid ${Color.foreground};
+      border: 2px solid ${Color.secondaryText};
     }
   `,
   searchButton: css`
