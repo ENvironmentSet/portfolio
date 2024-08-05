@@ -53,7 +53,7 @@ const CardStyle = {
   categories: css`
     grid-area: categories;
     
-    padding-left: 0;
+    padding-left: 0px;
     
     display: flex;
     gap: 0.3rem;
