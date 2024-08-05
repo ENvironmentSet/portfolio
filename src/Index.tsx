@@ -278,7 +278,7 @@ const IndexStyle = {
 function Index({ cardEntries }: IndexProps) {
   const [searchQuery, setSearchQuery] = useState('')
   const [filter, setFilter] = useState<FilterTags>(FilterTags.ALL)
-  const [isFilterListVisible, setFilterListVisiblity] = useState(true)
+  const [isFilterListVisible, setFilterListVisibility] = useState(true)
   const filterListRef = useRef<HTMLUListElement>(null)
 
   const cards: ReactElement[] = cardEntries
@@ -298,7 +298,7 @@ function Index({ cardEntries }: IndexProps) {
     if (filterListRef.current) {
       const observer = new IntersectionObserver(
         // 'entries' is actually a queue of entries thus it's okay to map setter sequentially.
-        entries => entries.map(({ isIntersecting }) => setFilterListVisiblity(isIntersecting)),
+        entries => entries.map(({ isIntersecting }) => setFilterListVisibility(isIntersecting)),
         { threshold: [0] }
       )
 
