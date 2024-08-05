@@ -1,7 +1,7 @@
 import { Switch, Route, Redirect } from 'wouter'
 import Index from './Index'
 
-import cardEntries from './contents/card-entries.ts'
+import index from './contents/index.ts'
 
 import { css, Global } from '@emotion/react'
 import { Color } from './colors.ts'
@@ -37,7 +37,7 @@ function App() {
         styles={globalStyle}
       />
       <Switch>
-        <Route path='/'> <Index cardEntries={cardEntries} /> </Route>
+        <Route path='/'> <Index cardEntries={index} /> </Route>
 
         <Route> <Redirect to='/' /> </Route>
       </Switch>

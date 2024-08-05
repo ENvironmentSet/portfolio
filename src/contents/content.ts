@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { createContext, ReactNode } from 'react'
 import { FilterTags } from '../Index.tsx'
 
 export interface Content {
@@ -13,3 +13,8 @@ export interface Content {
   playground?: string
   isLiked: boolean
 }
+
+export const Contents =
+  createContext<{ contents: Content[], setContents: (contents: Content[]) => void }>(
+    { contents: [], setContents: () => { throw new Error('Define provider for Contents first.') } }
+  )
