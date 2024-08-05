@@ -9,24 +9,32 @@ import { Color } from './colors.ts'
 import './reset.css'
 import './font.css'
 
+const globalStyle = css`
+  body {
+    font-family: GmarketSans;
+          
+    color: ${Color.foreground};
+    background-color: ${Color.background};
+  }
+        
+  @media (max-width: 430px) {
+    html {
+      font-size: 14px;
+    }
+  }
+        
+  @media (max-width: 360px) {
+    html {
+      font-size: 12px;
+    }
+  }
+`
+
 function App() {
   return (
     <>
       <Global
-        styles={css`
-        body {
-          font-family: GmarketSans;
-          
-          color: ${Color.foreground};
-          background-color: ${Color.background};
-        }
-        
-        @media (max-width: 640px) {
-          html {
-            font-size: 12px;
-          }
-        }
-      `}
+        styles={globalStyle}
       />
       <Switch>
         <Route path='/'> <Index cardEntries={cardEntries} /> </Route>
