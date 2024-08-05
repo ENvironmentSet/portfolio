@@ -8,10 +8,9 @@ import { Color } from './colors.ts'
 import { GoStar, GoSearch } from 'react-icons/go'
 import { FiAlignJustify } from 'react-icons/fi'
 import { SiTypescript } from 'react-icons/si'
-import { FaReact, FaGithub } from 'react-icons/fa'
+import { FaReact, FaGithub, FaHeart } from 'react-icons/fa'
 import { DiOpensource } from 'react-icons/di'
 import { IoDocumentSharp } from 'react-icons/io5'
-import { RxAvatar } from 'react-icons/rx'
 import { IoMdInformationCircle } from 'react-icons/io'
 import { highlightedButton, plainButton } from './buttons.tsx'
 
@@ -373,8 +372,8 @@ function Index({ cardEntries }: IndexProps) {
             <li css={IndexStyle.navItem}>
               <Link to='/' asChild>
                 <button>
-                  <RxAvatar />
-                  <span>이력서</span>
+                  <FaHeart />
+                  <span>찜 목록</span>
                 </button>
               </Link>
             </li>
