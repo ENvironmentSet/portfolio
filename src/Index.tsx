@@ -20,7 +20,7 @@ interface CardProps {
   thumbnail: string
   categories: string[]
   description: string
-  stars: number
+  stars?: number
   onClick?: () => void
   className?: string
 }
@@ -96,7 +96,7 @@ function Card({ title, thumbnail, categories, description, stars, className }: C
       </ul>
       <p css={CardStyle.description}>
         {description}
-        <span css={CardStyle.stars}><GoStar/>{stars}</span>
+        {stars && <span css={CardStyle.stars}><GoStar/>{stars}</span>}
       </p>
     </div>
   )
@@ -149,7 +149,7 @@ export interface CardEntry {
   thumbnail: string
   categories: string[]
   description: string
-  stars: number
+  stars?: number
   filterTags: FilterTags[]
 }
 
