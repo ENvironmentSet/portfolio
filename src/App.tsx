@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'wouter'
 import Index from './Index'
 import Detail from './Detail.tsx'
 import Likes, { persistLikes } from './Likes.tsx'
+import About from './About.tsx'
 
 import { Contents } from './contents/content.ts'
 import index from './contents/index.ts'
@@ -56,6 +57,7 @@ function App() {
             }
           </Route>
           <Route path='/likes'> <Likes /> </Route>
+          <Route path='/about'> <About /> </Route>
 
           <Route> <Redirect to='/' /> </Route>
         </Switch>

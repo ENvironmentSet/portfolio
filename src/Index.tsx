@@ -379,7 +379,7 @@ function Index({ cardEntries }: IndexProps) {
               </Link>
             </li>
             <li css={IndexStyle.navItem}>
-              <Link to='/' asChild>
+              <Link to='/about' asChild>
                 <button>
                   <IoMdInformationCircle />
                   <span>곶감에 대해</span>
