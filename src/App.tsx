@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Switch, Route, Redirect } from 'wouter'
 import Index from './Index'
 import Detail from './Detail.tsx'
-import Likes from './Likes.tsx'
+import Likes, { persistLikes } from './Likes.tsx'
 
 import { Contents } from './contents/content.ts'
 import index from './contents/index.ts'
@@ -39,7 +39,7 @@ function App() {
 
   return (
     <>
-      <Contents.Provider value={{ contents, setContents }}>
+      <Contents.Provider value={{ contents, setContents: contents => { persistLikes(contents); setContents(contents) } }}>
         <Global
           styles={globalStyle}
         />

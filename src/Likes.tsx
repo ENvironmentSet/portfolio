@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { useLocation } from 'wouter'
-import { Contents } from './contents/content.ts'
+import { Contents, Content } from './contents/content.ts'
 import { CardList, Card } from './Index.tsx'
 
 import { css } from '@emotion/react'
@@ -66,3 +66,27 @@ function Likes() {
 }
 
 export default Likes
+
+const LIKES_STORAGE_KEY = '@gotgam/likes'
+
+// Returns array of ids
+export function loadLikes(): string[] {
+  const item = localStorage.getItem(LIKES_STORAGE_KEY)
+
+  if (item) {
+    return JSON.parse(item)
+  } else return []
+}
+
+export function applyLikes(contents: Content[], likes: string[]): Content[] {
+  return contents.map(({ id, ...others }) =>
+    likes.includes(id) ? { id, ...others, isLiked: true } : {id, ...others}
+  )
+}
+
+export function persistLikes(contents: Content[]): void {
+  localStorage.setItem(
+    LIKES_STORAGE_KEY,
+    JSON.stringify(contents.filter(({ isLiked }) => isLiked).map(({ id }) => id))
+  )
+}
