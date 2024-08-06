@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Link, useLocation } from 'wouter'
+import { useLocation } from 'wouter'
 import { Contents } from './contents/content.ts'
 import { CardList, Card } from './Index.tsx'
 
@@ -47,7 +47,7 @@ function Likes() {
   return (
     <div css={LikesStyle.page}>
       <header css={LikesStyle.header}>
-        <Link to='/' asChild><IoIosArrowBack css={LikesStyle.backButton} /></Link>
+        <IoIosArrowBack onClick={() => history.back()} css={LikesStyle.backButton} />
         <b>찜 목록</b>
       </header>
       <main css={LikesStyle.main}>

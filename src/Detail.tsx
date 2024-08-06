@@ -243,7 +243,7 @@ function Detail({ id: currentContentId, title, thumbnail, categories, content, p
         <nav>
           <ul css={DetailStyle.navList}>
             <li>
-              <Link to='/'><IoIosArrowBack css={DetailStyle.navLink} /></Link>
+              <IoIosArrowBack onClick={() => history.back()} css={DetailStyle.navLink} />
             </li>
             <li>
               <Link to='/'><IoIosHome css={DetailStyle.navLink} /></Link>
