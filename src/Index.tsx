@@ -108,10 +108,10 @@ interface CardListProps {
 
 const CardListStyle = {
   list: css`
-    padding-left: 0px;
+    padding: 0px 1.3rem;
   `,
   item: css`
-    padding: 2rem;
+    padding: 1.3rem 0px;
       
     border-bottom: 1px solid ${Color.secondaryText};
     
