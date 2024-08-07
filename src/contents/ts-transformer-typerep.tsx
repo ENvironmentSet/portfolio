@@ -28,7 +28,7 @@ function TsTransformerTyperepContent() {
       </div>
 
       <p>
-        코드는 <a href='https://github.com/ENvironmentSet/ts-transfromer-typerep'>GitHub 저장소</a>에서 확인할 수 있으십니다.
+        자세한 사항은 <a href='https://github.com/ENvironmentSet/ts-transfromer-typerep'>GitHub 저장소</a>에서 확인할 수 있으십니다.
       </p>
     </>
   )
