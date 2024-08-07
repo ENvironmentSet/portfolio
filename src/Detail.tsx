@@ -245,6 +245,7 @@ const DetailStyle = {
     padding: 0.6rem;
     
     font-weight: bold;
+    text-decoration: none;
   `
 }
 
@@ -323,11 +324,9 @@ function Detail({ id: currentContentId, title, thumbnail, categories, content, p
         </p>
         {
           playground &&
-            <Link to={playground} asChild>
-              <button css={[highlightedButton, DetailStyle.playground]}>
-                <b>체험해보기</b>
-              </button>
-            </Link>
+            <a href={playground} css={[highlightedButton, DetailStyle.playground]}>
+              <b>체험해보기</b>
+            </a>
         }
       </footer>
     </div>
