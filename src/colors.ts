@@ -5,7 +5,8 @@ const enum Color {
   primaryText = '#E6E6EA',
   secondaryText = '#595B62',
   highlight = '#ED5C07',
-  elementBackground = '#121214'
+  elementBackground = '#121214',
+  href = '#BF77F6'
 }
 
 export default Color

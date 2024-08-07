@@ -166,6 +166,39 @@ const DetailStyle = {
   articleBox: css`
     padding: 1rem;
   `,
+  articleBody: css`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+    word-break: keep-all;
+    
+    a {
+      text-decoration: none;
+      color: ${Color.href};
+    }
+    
+    b {
+      color: ${Color.highlight};
+    }
+    
+    ol, ul {
+      padding-left: 2rem;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+    
+    iframe {
+      height: 30rem;
+    }
+    
+    code {
+      background-color: ${Color.elementBackground};
+      font-size: 0.9rem;
+    }
+  `,
   title: css`
     margin-top: 1rem;
   `,
@@ -263,7 +296,9 @@ function Detail({ id: currentContentId, title, thumbnail, categories, content, p
                 )
               }
             </ul>
-            {content}
+            <div css={DetailStyle.articleBody}>
+              {content}
+            </div>
           </article>
         </div>
       </main>
