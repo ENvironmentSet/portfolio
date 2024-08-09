@@ -47,6 +47,21 @@ function TsTransformerTyperepContent() {
       </div>
 
       <p>
+        실행 시간에 타입 정보를 참조하는 것은 타입스크립트의 디자인 목표에 반하는 일입니다.
+        그럼에도 불구하고 타입 정보를 사용해야 할 때가 종종 있습니다.
+        DI를 구현하기 위해 타입 정보에 접근하는 Angular가 대표적인 사례입니다.
+        이러한 경우 개발자는 크게 두 가지 선택지 중 하나를 택해야 합니다.
+        하나는 제한적이지만 타입스크립트에서 공식적으로 지원하는 기술인 <code>emitDecoratorMetadata</code>를 사용하는 방법이고, 하나는 직접 커스텀 트랜스포머를 작성해 compiler API를 이용하는 방법입니다.
+        전자는 능력이 제한적이라는 문제를, 후자는 유지 보수 부담이 발생한다는 문제를 안고 있습니다.
+      </p>
+
+      <p>
+        <code>ts-transformer-typerep</code>은 딜레마에 빠진 개발자들을 위해 만든 새 선택지입니다.
+        기능은 <code>emitDecoratorMetadata</code>보다 더 강력하며 사용하는 것도 커스텀 트랜스포머를 만들어 쓰는 것보다 덜 수고스럽습니다.
+        <code>ts-transformer-typerep</code>는 타입을 실행 시간에 취급하기 위해 만들어졌고, 만들어지고 있으며, 만들어질 모든 트랜스포머를 대체할 수 있습니다.
+      </p>
+
+      <p>
         자세한 사항은 <a href='https://github.com/ENvironmentSet/ts-transfromer-typerep'>GitHub 저장소</a>에서 확인할 수 있으십니다.
       </p>
     </>
