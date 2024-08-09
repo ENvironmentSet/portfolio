@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { useLocation } from 'wouter'
 import { Contents, Content } from './contents/content.ts'
 import { CardList, Card } from './Index.tsx'
+import { CustomScroll } from 'react-custom-scroll'
 
 import { css } from '@emotion/react'
 
@@ -34,8 +35,6 @@ const LikesStyle = {
   `,
   main: css`
     height: 90%;
-    
-    overflow-y: scroll;
   `
 }
 
@@ -50,15 +49,17 @@ function Likes() {
         <b>찜 목록</b>
       </header>
       <main css={LikesStyle.main}>
-        <CardList>
-          {
-            contents
-              .filter(({ isLiked }) => isLiked)
-              .map(({ id, ...cardEntry }) =>
-                <Card key={id} {...cardEntry} onClick={() => navigate(`/items/${id}`)} />
-              )
-          }
-        </CardList>
+        <CustomScroll heightRelativeToParent='100%'>
+          <CardList>
+            {
+              contents
+                .filter(({ isLiked }) => isLiked)
+                .map(({ id, ...cardEntry }) =>
+                  <Card key={id} {...cardEntry} onClick={() => navigate(`/items/${id}`)} />
+                )
+            }
+          </CardList>
+        </CustomScroll>
       </main>
     </div>
   )

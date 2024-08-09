@@ -21,6 +21,11 @@ const globalStyle = css`
     color: ${Color.foreground};
     background-color: ${Color.background};
   }
+  
+  .rcs-inner-handle {
+    background-color: ${Color.secondaryText};
+    width: 0.4rem;
+  }
         
   @media (max-width: 430px) {
     html {

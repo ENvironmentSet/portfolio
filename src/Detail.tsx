@@ -1,5 +1,6 @@
 import { ReactNode, useContext, useEffect, useRef, useState } from 'react'
 import { Link } from 'wouter'
+import { CustomScroll } from 'react-custom-scroll'
 
 import { css } from '@emotion/react'
 
@@ -152,8 +153,6 @@ const DetailStyle = {
     width: 1.5rem;
   `,
   main: css`
-    overflow-y: scroll;
-    
     height: 90%;
   `,
   thumbnail: css`
@@ -285,38 +284,40 @@ function Detail({ id: currentContentId, title, thumbnail, categories, content, p
         </nav>
       </header>
       <main css={DetailStyle.main}>
-        <img ref={thumbnailRef} css={DetailStyle.thumbnail} src={thumbnail} />
-        <div css={DetailStyle.articleBox}>
-          <Profile />
-          <article>
-            <h1 css={DetailStyle.title}>{title}</h1>
-            <ul css={DetailStyle.categories}>
-              {
-                categories.map((category, index, { length }) =>
-                  <li key={category}> {category}{index < length - 1 && ','} </li>
-                )
-              }
-            </ul>
-            <div css={DetailStyle.articleBody}>
-              {content}
-            </div>
-          </article>
-        </div>
+        <CustomScroll heightRelativeToParent='100%'>
+          <img ref={thumbnailRef} css={DetailStyle.thumbnail} src={thumbnail}/>
+          <div css={DetailStyle.articleBox}>
+            <Profile/>
+            <article>
+              <h1 css={DetailStyle.title}>{title}</h1>
+              <ul css={DetailStyle.categories}>
+                {
+                  categories.map((category, index, {length}) =>
+                    <li key={category}> {category}{index < length - 1 && ','} </li>
+                  )
+                }
+              </ul>
+              <div css={DetailStyle.articleBody}>
+                {content}
+              </div>
+            </article>
+          </div>
+        </CustomScroll>
       </main>
       <footer css={DetailStyle.footer}>
         <span
           onClick={() =>
-            setContents(contents.map(({ id, ...others }) =>
+            setContents(contents.map(({id, ...others}) =>
               id === currentContentId
-                ? ({ id, ...others, isLiked: !others.isLiked })
-                : ({ id, ...others })
+                ? ({id, ...others, isLiked: !others.isLiked})
+                : ({id, ...others})
             ))
           }
           data-is-liked={isLiked}
           css={DetailStyle.heart}
         >
           {
-            isLiked ? <IoIosHeart /> : <IoIosHeartEmpty />
+            isLiked ? <IoIosHeart/> : <IoIosHeartEmpty/>
           }
         </span>
         <p>
@@ -324,7 +325,7 @@ function Detail({ id: currentContentId, title, thumbnail, categories, content, p
         </p>
         {
           playground &&
-            <a href={playground} css={[highlightedButton, DetailStyle.playground]}>
+          <a href={playground} css={[highlightedButton, DetailStyle.playground]}>
               <b>체험해보기</b>
             </a>
         }

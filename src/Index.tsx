@@ -1,6 +1,7 @@
 import { Children, ReactElement, useState, useEffect, useRef } from 'react'
 
 import { Link, useLocation } from 'wouter'
+import { CustomScroll } from 'react-custom-scroll'
 
 import { css } from '@emotion/react'
 
@@ -209,8 +210,6 @@ const IndexStyle = {
     color: ${Color.primaryText};
   `,
   contentBox: css`
-    overflow-y: scroll;
-    
     height: 80%;
   `,
   filterList: css`
@@ -338,25 +337,27 @@ function Index({ cardEntries }: IndexProps) {
         </ul>
       </header>
       <main css={IndexStyle.contentBox}>
-        <ul css={IndexStyle.filterList} ref={filterListRef}>
-          <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.ALL)}>
-            <button css={filter === FilterTags.ALL ? highlightedButton : plainButton}><FiAlignJustify css={css`height: 1.3rem; width: 1.3rem;`} />전체</button>
-          </li>
-          <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.TS)}>
-            <button css={filter === FilterTags.TS ? highlightedButton : plainButton}><SiTypescript css={css`height: 1rem; width: 1rem;`} />TS</button>
-          </li>
-          <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.React)}>
-            <button css={filter === FilterTags.React ? highlightedButton : plainButton}><FaReact css={css`height: 1.3rem; width: 1.3rem;`} />React</button>
-          </li>
-          <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.OSS)}>
-            <button css={filter === FilterTags.OSS ? highlightedButton : plainButton}><DiOpensource css={css`height: 1.3rem; width: 1.3rem;`} />OSS</button>
-          </li>
-        </ul>
-        {
-          cards.length
-            ? <CardList>{cards}</CardList>
-            : <h2 css={IndexStyle.emptySearchResult}>'{searchQuery}' 검색 결과가 없습니다.</h2>
-        }
+        <CustomScroll heightRelativeToParent="100%">
+          <ul css={IndexStyle.filterList} ref={filterListRef}>
+            <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.ALL)}>
+              <button css={filter === FilterTags.ALL ? highlightedButton : plainButton}><FiAlignJustify css={css`height: 1.3rem; width: 1.3rem;`} />전체</button>
+            </li>
+            <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.TS)}>
+              <button css={filter === FilterTags.TS ? highlightedButton : plainButton}><SiTypescript css={css`height: 1rem; width: 1rem;`} />TS</button>
+            </li>
+            <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.React)}>
+              <button css={filter === FilterTags.React ? highlightedButton : plainButton}><FaReact css={css`height: 1.3rem; width: 1.3rem;`} />React</button>
+            </li>
+            <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.OSS)}>
+              <button css={filter === FilterTags.OSS ? highlightedButton : plainButton}><DiOpensource css={css`height: 1.3rem; width: 1.3rem;`} />OSS</button>
+            </li>
+          </ul>
+          {
+            cards.length
+              ? <CardList>{cards}</CardList>
+              : <h2 css={IndexStyle.emptySearchResult}>'{searchQuery}' 검색 결과가 없습니다.</h2>
+          }
+        </CustomScroll>
       </main>
       <footer css={IndexStyle.footer}>
         <nav>
