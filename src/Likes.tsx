@@ -35,7 +35,7 @@ const LikesStyle = {
   main: css`
     height: 90%;
     
-    overflow: scroll;
+    overflow-y: scroll;
   `
 }
 

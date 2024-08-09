@@ -152,7 +152,7 @@ const DetailStyle = {
     width: 1.5rem;
   `,
   main: css`
-    overflow: scroll;
+    overflow-y: scroll;
     
     height: 90%;
   `,
