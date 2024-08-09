@@ -29,7 +29,7 @@ function OversomethingContent() {
           또한 site map을 생성하는 플러그인과 <code>robots.txt</code>를 생성하는 플러그인을 적용하기도 했습니다.
         </li>
         <li>
-          - PWA에 흥미를 갖고 몇 가지 기술을 적용했습니다.
+          PWA에 흥미를 갖고 몇 가지 기술을 적용했습니다.
           <code>manifest.json</code>를 설정해 로컬에 설치할 수 있도록 만들었으며, <code>gatsby-plugin-offline</code> 플러그인을 적용해 오프라인 이용이 가능하도록 만들었습니다.
         </li>
       </ul>
