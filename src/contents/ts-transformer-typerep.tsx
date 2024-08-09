@@ -40,7 +40,7 @@ function TsTransformerTyperepContent() {
             <code>typeRep</code> 함수는 리터럴 타입부터 함수, 객체, 유니언 타입까지 다양한 타입을 취급합니다.
           </li>
           <li>
-            <code>typeRep</code> 함수는 표현식을 사용할 수 있는 문맥이라면 어디에서든지 사용될 수 있습니다. (단, 간접 호출은 불가능합니다.)
+            <code>typeRep</code> 함수는 표현식을 사용할 수 있는 문맥이라면 어디에서든지 호출될 수 있습니다. (단, 항상 <code>typeRep&lt;type&gt;</code> 꼴이어야 합니다.)
           </li>
         </ol>
       </div>
@@ -58,7 +58,7 @@ const tsTransformerTyperep: Content = {
   thumbnail: tsTransformerTypeRepThumbnail,
   categories: ['typescript', 'transformer'],
   stars: 19,
-  description: '실행 시간에 타입 정보를 취급할 수 있게 해주는 타입스크립트 커스텀 트랜스포머',
+  description: '실행 시간에 타입 정보를 취급하기 위한 타입스크립트 커스텀 트랜스포머',
   filterTags: [FilterTags.ALL, FilterTags.TS, FilterTags.OSS],
   content: <TsTransformerTyperepContent />,
   playground: checkWebContainerSupport()
