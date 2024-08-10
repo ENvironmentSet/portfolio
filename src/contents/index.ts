@@ -9,10 +9,10 @@ import tsTransformerTyperep from './ts-transformer-typerep.tsx'
 
 const index: Content[] = applyLikes([
   hyogwa,
+  tsTransformerTyperep,
   lambda2wasm,
   overcurried,
   oversomething,
-  tsTransformerTyperep
 ], loadLikes())
 
 export default index;
