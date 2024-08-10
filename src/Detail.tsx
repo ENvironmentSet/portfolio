@@ -197,6 +197,11 @@ const DetailStyle = {
       background-color: ${Color.elementBackground};
       font-size: 0.9rem;
     }
+    
+    blockquote {
+      padding-left: 2rem;
+      border-left: 0.5rem solid ${Color.secondaryText};
+    }
   `,
   title: css`
     margin-top: 1rem;
