@@ -27,14 +27,32 @@ interface CardProps {
 
 const CardStyle = {
   plane: css`
+    position: relative;
+  
+    height: 12rem;
+  
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 2rem 2rem 8rem;
+    grid-template-rows: 1fr 1fr 4fr;
     grid-template-areas:
       'thumbnail title'
       'thumbnail categories'
       'thumbnail description';
     grid-column-gap: 1.5rem;
+    
+    @media (min-width: 1024px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 15rem auto auto 1fr;
+      grid-template-areas:
+        'thumbnail'
+        'title'
+        'categories'
+        'description';
+      
+      padding: 0 1.5rem 1.5rem;
+      
+      height: 100%;
+    }
   `,
   thumbnail: css`
     grid-area: thumbnail;
@@ -49,6 +67,10 @@ const CardStyle = {
     grid-area: title;
     
     font-weight: normal;
+    
+    @media (min-width: 1024px) {
+      margin-top: 0.6rem;
+    }
   `,
   categories: css`
     grid-area: categories;
@@ -56,7 +78,8 @@ const CardStyle = {
     padding-left: 0px;
     
     display: flex;
-    gap: 0.3rem;
+    flex-wrap: wrap;
+    column-gap: 0.3rem;
     
     list-style-type: none;
     
@@ -65,11 +88,13 @@ const CardStyle = {
   description: css`
     grid-area: description;
     
-    position: relative;
+    @media (min-width: 1024px) {
+      margin-top: 1rem;
+    }
   `,
   stars: css`
     position: absolute;
-    right: 0px;
+    right: 0.5rem;
     bottom: 0px;
     
     display: flex;
@@ -78,6 +103,10 @@ const CardStyle = {
     svg {
       width: 1rem;
       height: 1rem;
+    }
+    
+    @media (min-width: 1024px) {
+      right: 1.5rem;
     }
   `
 }
@@ -110,6 +139,12 @@ interface CardListProps {
 const CardListStyle = {
   list: css`
     padding: 0px 1.3rem;
+    
+    display: grid;
+    
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   `,
   item: css`
     padding: 1.3rem 0px;
@@ -120,6 +155,10 @@ const CardListStyle = {
     
     :hover {
       background-color: ${Color.elementBackground};
+    }
+    
+    @media (min-width: 1024px) {
+      padding-bottom: 0.8rem;
     }
   `
 }
