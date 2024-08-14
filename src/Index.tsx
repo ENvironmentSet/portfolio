@@ -425,10 +425,10 @@ function Index({ cardEntries }: IndexProps) {
                 <button css={filter === FilterTags.TS ? highlightedButton : plainButton}><SiTypescript css={css`height: 1rem; width: 1rem;`} />TS</button>
               </li>
               <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.React)}>
-                <button css={filter === FilterTags.React ? highlightedButton : plainButton}><FaReact css={css`height: 1.3rem; width: 1.3rem;`} />React</button>
+                <button css={filter === FilterTags.React ? highlightedButton : plainButton}><FaReact css={css`height: 1rem; width: 1rem; flex-shrink: 0;`} />React</button>
               </li>
               <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.OSS)}>
-                <button css={filter === FilterTags.OSS ? highlightedButton : plainButton}><DiOpensource css={css`height: 1.3rem; width: 1.3rem;`} />OSS</button>
+                <button css={filter === FilterTags.OSS ? highlightedButton : plainButton}><DiOpensource css={css`height: 1.3rem; width: 1.3rem; flex-shrink: 0;`} />OSS</button>
               </li>
             </ul>
             {
