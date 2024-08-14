@@ -199,11 +199,20 @@ interface IndexProps {
 const IndexStyle = {
   page: css`
     height: 100%;
+    
+    position: relative;
   `,
   header: css`
     height: 10%;
     
     padding: 1rem 1.7rem;
+    
+    @media (min-width: 1024px) {
+      min-height: 8%;
+      height: auto;
+    
+      padding: 1rem 25%;
+    }
   `,
   actionList: css`
     display: flex;
@@ -250,6 +259,15 @@ const IndexStyle = {
   `,
   contentBox: css`
     height: 80%;
+    
+    @media (min-width: 1024px) {
+      height: 92%;
+    }
+  `,
+  scrollbarInnerBox: css`
+    @media (min-width: 1024px) {
+      padding: 0 12%;
+    }
   `,
   filterList: css`
     display: flex;
@@ -259,6 +277,10 @@ const IndexStyle = {
     list-style-type: none;
     
     padding: 0.7rem 1.5rem;
+       
+    @media (min-width: 1024px) {
+      padding: 0 25% 0.7rem;
+    }
     
     @media (min-width: 800px) {
       gap: 1.5rem;
@@ -293,6 +315,18 @@ const IndexStyle = {
     nav {
       height: 100%;
     }
+        
+    @media (min-width: 1024px) {
+      position: absolute;
+      top: 5.5rem;
+      
+      padding: 1.5rem 1.5rem;
+      
+      height: auto;
+      
+      border: none;
+      border-right: 2px solid ${Color.secondaryText};
+    }
   `,
   footerNavBar: css`
     height: 100%;
@@ -303,6 +337,11 @@ const IndexStyle = {
     list-style-type: none;
     
     padding-left: 0px;
+    
+    @media (min-width: 1024px) {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
   `,
   navItem: css`
     flex-grow: 1;
@@ -377,25 +416,27 @@ function Index({ cardEntries }: IndexProps) {
       </header>
       <main css={IndexStyle.contentBox}>
         <CustomScroll heightRelativeToParent="100%">
-          <ul css={IndexStyle.filterList} ref={filterListRef}>
-            <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.ALL)}>
-              <button css={filter === FilterTags.ALL ? highlightedButton : plainButton}><FiAlignJustify css={css`height: 1.3rem; width: 1.3rem;`} />전체</button>
-            </li>
-            <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.TS)}>
-              <button css={filter === FilterTags.TS ? highlightedButton : plainButton}><SiTypescript css={css`height: 1rem; width: 1rem;`} />TS</button>
-            </li>
-            <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.React)}>
-              <button css={filter === FilterTags.React ? highlightedButton : plainButton}><FaReact css={css`height: 1.3rem; width: 1.3rem;`} />React</button>
-            </li>
-            <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.OSS)}>
-              <button css={filter === FilterTags.OSS ? highlightedButton : plainButton}><DiOpensource css={css`height: 1.3rem; width: 1.3rem;`} />OSS</button>
-            </li>
-          </ul>
-          {
-            cards.length
-              ? <CardList>{cards}</CardList>
-              : <h2 css={IndexStyle.emptySearchResult}>'{searchQuery}' 검색 결과가 없습니다.</h2>
-          }
+          <div css={IndexStyle.scrollbarInnerBox}>
+            <ul css={IndexStyle.filterList} ref={filterListRef}>
+              <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.ALL)}>
+                <button css={filter === FilterTags.ALL ? highlightedButton : plainButton}><FiAlignJustify css={css`height: 1.3rem; width: 1.3rem;`} />전체</button>
+              </li>
+              <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.TS)}>
+                <button css={filter === FilterTags.TS ? highlightedButton : plainButton}><SiTypescript css={css`height: 1rem; width: 1rem;`} />TS</button>
+              </li>
+              <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.React)}>
+                <button css={filter === FilterTags.React ? highlightedButton : plainButton}><FaReact css={css`height: 1.3rem; width: 1.3rem;`} />React</button>
+              </li>
+              <li css={IndexStyle.filterItem} onClick={() => setFilter(FilterTags.OSS)}>
+                <button css={filter === FilterTags.OSS ? highlightedButton : plainButton}><DiOpensource css={css`height: 1.3rem; width: 1.3rem;`} />OSS</button>
+              </li>
+            </ul>
+            {
+              cards.length
+                ? <CardList>{cards}</CardList>
+                : <h2 css={IndexStyle.emptySearchResult}>'{searchQuery}' 검색 결과가 없습니다.</h2>
+            }
+          </div>
         </CustomScroll>
       </main>
       <footer css={IndexStyle.footer}>
