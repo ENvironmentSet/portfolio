@@ -1,4 +1,4 @@
-import { useState, ReactNode } from 'react'
+import { useState } from 'react'
 import { Switch, Route, Redirect } from 'wouter'
 import Index from './Index'
 import Detail from './Detail.tsx'
@@ -38,37 +38,12 @@ const globalStyle = css`
       font-size: 12px;
     }
   }
-`
-
-interface PhoneCaseProps {
-  children: ReactNode
-}
-
-const PhoneCaseStyle = {
-  edge: css`
+  
+  #root {
     height: 100vh;
     height: 100dvh;
-    
-    @media (min-width: 1024px) {
-    
-      width: 50vw;
-    
-      margin-left: auto;
-      margin-right: auto;
-      
-      border: 15px solid ${Color.elementBackground};
-      border-radius: 15px;
-    }
-  `
-}
-
-function PhoneCase({ children }: PhoneCaseProps) {
-  return (
-    <div css={PhoneCaseStyle.edge}>
-      {children}
-    </div>
-  )
-}
+  }
+`
 
 function App() {
   const [contents, setContents] = useState(index)
@@ -79,25 +54,23 @@ function App() {
         <Global
           styles={globalStyle}
         />
-        <PhoneCase>
-          <Switch>
-            <Route path='/'> <Index cardEntries={index} /> </Route>
-            <Route path='/items/:id'>
-              {
-                ({ id: targetId }) => {
-                  const content = contents.find(({ id }) => id === targetId)
+        <Switch>
+          <Route path='/'> <Index cardEntries={index} /> </Route>
+          <Route path='/items/:id'>
+            {
+              ({ id: targetId }) => {
+                const content = contents.find(({ id }) => id === targetId)
 
-                  if (content) return <Detail {...content} />
-                  else return <Redirect to='/' />
-                }
+                if (content) return <Detail {...content} />
+                else return <Redirect to='/' />
               }
-            </Route>
-            <Route path='/likes'> <Likes /> </Route>
-            <Route path='/about'> <About /> </Route>
+            }
+          </Route>
+          <Route path='/likes'> <Likes /> </Route>
+          <Route path='/about'> <About /> </Route>
 
-            <Route> <Redirect to='/' /> </Route>
-          </Switch>
-        </PhoneCase>
+          <Route> <Redirect to='/' /> </Route>
+        </Switch>
       </Contents.Provider>
     </>
   )
