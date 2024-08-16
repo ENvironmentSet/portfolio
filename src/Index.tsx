@@ -266,6 +266,7 @@ const IndexStyle = {
     height: 80%;
     
     @media (min-width: 1024px) {
+      height: auto;
       flex-grow: 1;
     }
   `,
