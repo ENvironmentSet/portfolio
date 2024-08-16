@@ -203,6 +203,9 @@ const IndexStyle = {
     height: 100%;
     
     position: relative;
+    
+    display: flex;
+    flex-direction: column;
   `,
   header: css`
     height: 10%;
@@ -263,7 +266,7 @@ const IndexStyle = {
     height: 80%;
     
     @media (min-width: 1024px) {
-      height: 92%;
+      flex-grow: 1;
     }
   `,
   scrollbarInnerBox: css`
