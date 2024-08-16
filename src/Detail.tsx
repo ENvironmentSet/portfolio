@@ -5,11 +5,13 @@ import { CustomScroll } from 'react-custom-scroll'
 import { css } from '@emotion/react'
 
 import profilePicture from './assets/profile.jpeg'
-import { IoIosArrowBack, IoIosHome, IoIosHeartEmpty, IoIosHeart } from 'react-icons/io'
+import { IoIosArrowBack, IoIosHome, IoIosHeartEmpty, IoIosHeart, IoMdInformationCircle } from 'react-icons/io'
 
 import Color from './colors.ts'
 import { Contents } from './contents/content.ts'
 import { highlightedButton } from './buttons.tsx'
+import { IoDocumentSharp } from 'react-icons/io5'
+import { FaHeart } from 'react-icons/fa'
 
 interface ProfileProps {
   className?: string
@@ -143,6 +145,10 @@ const DetailStyle = {
     gap: 1.2rem;
     
     list-style-type: none;
+    
+    @media (min-width: 1024px) {
+      display: none;
+    }
   `,
   navLink: css`
     color: ${Color.primaryText};
@@ -150,8 +156,63 @@ const DetailStyle = {
     height: 1.5rem;
     width: 1.5rem;
   `,
+  sideNavBar: css`
+    position: absolute;
+    top: 5.5rem;
+    left: 0;
+      
+    padding: 1.5rem 1.5rem;
+    
+    font-size: 1rem;
+      
+    height: auto;
+      
+    border: none;
+    border-right: 2px solid ${Color.secondaryText};
+    
+    @media (max-width: 1023px) {
+      display: none;
+    }
+  `,
+  sideNavList: css`
+    height: 100%;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    
+    list-style-type: none;
+    
+    padding-left: 0px;
+  `,
+  sideNavItem: css`
+    flex-grow: 1;
+    
+    button {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
+      background-color: transparent;
+      
+      border: 0px;
+      padding: 0px;
+      
+      width: 100%;
+      
+      color: ${Color.primaryText};
+    }
+  `,
   main: css`
     height: 90%;
+    
+    @media (min-width: 1024px) {
+      height: auto;
+      
+      padding: 0 20%;
+    }
   `,
   thumbnail: css`
     height: 50vh;
@@ -227,6 +288,11 @@ const DetailStyle = {
     display: flex;
     align-items: center;
     gap: 1rem;
+    
+    @media (min-width: 1024px) {
+      height: auto;
+      margin: 0 20%;
+    }
   `,
   heart: css`
     height: 3.8rem;
@@ -273,15 +339,46 @@ function Detail({ id: currentContentId, title, thumbnail, categories, content, p
     <div css={DetailStyle.page}>
       <header
         css={DetailStyle.header}
-        style={isThumbnailVisible ? { backgroundColor: Color.background, borderBottom: `1px solid ${Color.secondaryText}` } : {}}
+        style={isThumbnailVisible ? {
+          backgroundColor: Color.background,
+          borderBottom: `1px solid ${Color.secondaryText}`
+        } : {}}
       >
         <nav>
           <ul css={DetailStyle.navList}>
             <li>
-              <IoIosArrowBack onClick={() => history.back()} css={DetailStyle.navLink} />
+              <IoIosArrowBack onClick={() => history.back()} css={DetailStyle.navLink}/>
             </li>
             <li>
-              <Link to='/'><IoIosHome css={DetailStyle.navLink} /></Link>
+              <Link to='/'><IoIosHome css={DetailStyle.navLink}/></Link>
+            </li>
+          </ul>
+        </nav>
+        <nav css={DetailStyle.sideNavBar}>
+          <ul css={DetailStyle.sideNavList}>
+            <li css={DetailStyle.sideNavItem}>
+              <Link to='/' asChild>
+                <button>
+                  <IoDocumentSharp/>
+                  <span>포트폴리오</span>
+                </button>
+              </Link>
+            </li>
+            <li css={DetailStyle.sideNavItem}>
+              <Link to='/likes' asChild>
+                <button>
+                  <FaHeart/>
+                  <span>찜 목록</span>
+                </button>
+              </Link>
+            </li>
+            <li css={DetailStyle.sideNavItem}>
+              <Link to='/about' asChild>
+                <button>
+                  <IoMdInformationCircle/>
+                  <span>곶감에 대해</span>
+                </button>
+              </Link>
             </li>
           </ul>
         </nav>
