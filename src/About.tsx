@@ -24,7 +24,7 @@ const AboutStyle = {
     }
     
     @media (min-width: 1024px) {
-      margin: 0 15%;
+      margin: 0 12%;
       
       font-size: 1.8rem;
     }
@@ -60,6 +60,10 @@ const AboutStyle = {
       
     border: none;
     border-right: 2px solid ${Color.secondaryText};
+    
+    @media (max-width: 1023px) {
+      display: none;
+    }
   `,
   navList: css`
     height: 100%;
