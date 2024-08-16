@@ -208,7 +208,7 @@ const IndexStyle = {
     flex-direction: column;
   `,
   header: css`
-    height: 8%;
+    height: 10%;
     
     padding: 1rem 1.7rem;
     
@@ -262,7 +262,7 @@ const IndexStyle = {
     color: ${Color.primaryText};
   `,
   contentBox: css`
-    height: 82%;
+    height: 80%;
     
     @media (min-width: 1024px) {
       height: auto;
