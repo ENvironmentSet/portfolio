@@ -41,7 +41,11 @@ const AboutStyle = {
     }
   `,
   main: css`
-    padding: 2rem 20%;
+    padding: 2rem;
+    
+    @media (min-width: 1024px) {
+      padding: 2rem 20%;
+    }
   `,
   highlight: css`
     color: ${Color.highlight};
