@@ -23,8 +23,6 @@ const ProfileStyle = {
     padding-bottom: 1rem;
     
     border-bottom: 1px solid ${Color.secondaryText};
-    
-    isolation: isolate;
   `,
   avatar: css`
     border-radius: 45px;
