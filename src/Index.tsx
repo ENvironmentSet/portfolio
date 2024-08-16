@@ -88,6 +88,8 @@ const CardStyle = {
   description: css`
     grid-area: description;
     
+    padding-right: 1rem;
+    
     @media (min-width: 1024px) {
       margin-top: 1rem;
     }
