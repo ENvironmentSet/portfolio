@@ -13,7 +13,7 @@ function Lambda2wasmContent() {
 
       <ol>
         <li>
-          Rank 1 polymorphism을 지원하는 타입 검사기를 구현했습니다.
+          Unification variable을 사용해 rank 1 polymorphism을 지원하는 타입 검사기를 구현했습니다.
         </li>
         <li>
           Closure를 사용해 고차 함수와 자동 커링을 구현했습니다.
