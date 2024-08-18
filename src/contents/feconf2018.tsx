@@ -5,7 +5,7 @@ import { Content } from './content.ts'
 import { FilterTags } from '../Index.tsx'
 
 import feconf2018Thumbnail from '../assets/feconf2018-thumbnail.png'
-import presentation from '../assets/feconf2018_presentation.pdf'
+import presentation from '../assets/feconf2018-presentation.pdf'
 
 function Feconf2018Content() {
   return (
