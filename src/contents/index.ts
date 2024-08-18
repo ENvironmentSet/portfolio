@@ -14,6 +14,7 @@ import ecma262 from './ecma262.tsx'
 import feconf2018 from './feconf2018.tsx'
 import es10Preview from './es10-preview.tsx'
 import jsconf2020 from './jsconf2020.tsx'
+import haskellForProgrammers from './haskell-for-programmers.tsx'
 
 const index: Content[] = applyLikes([
   hyogwa,
@@ -28,7 +29,8 @@ const index: Content[] = applyLikes([
   ecma262,
   feconf2018,
   es10Preview,
-  jsconf2020
+  jsconf2020,
+  haskellForProgrammers
 ], loadLikes())
 
 export default index;
