@@ -10,6 +10,7 @@ import esone from './esone.tsx'
 import heavenlyCocktail from './heavenly-cocktail.tsx'
 import emotion3232 from './emotion3232.tsx'
 import refsAndTheDom from './refs-and-the-dom.tsx'
+import ecma262 from './ecma262.tsx'
 
 const index: Content[] = applyLikes([
   hyogwa,
@@ -20,7 +21,8 @@ const index: Content[] = applyLikes([
   oversomething,
   heavenlyCocktail,
   emotion3232,
-  refsAndTheDom
+  refsAndTheDom,
+  ecma262
 ], loadLikes())
 
 export default index;
