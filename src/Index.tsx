@@ -401,7 +401,7 @@ function Index({ cardEntries }: IndexProps) {
 
       return () => observer.disconnect()
     }
-  })
+  }, [])
 
   return (
     <div css={IndexStyle.page}>

@@ -333,7 +333,7 @@ function Detail({ id: currentContentId, title, thumbnail, categories, content, p
 
       return () => observer.disconnect()
     }
-  })
+  }, [])
 
   return (
     <div css={DetailStyle.page}>
