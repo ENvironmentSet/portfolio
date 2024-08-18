@@ -13,6 +13,7 @@ import refsAndTheDom from './refs-and-the-dom.tsx'
 import ecma262 from './ecma262.tsx'
 import feconf2018 from './feconf2018.tsx'
 import es10Preview from './es10-preview.tsx'
+import jsconf2020 from './jsconf2020.tsx'
 
 const index: Content[] = applyLikes([
   hyogwa,
@@ -26,7 +27,8 @@ const index: Content[] = applyLikes([
   refsAndTheDom,
   ecma262,
   feconf2018,
-  es10Preview
+  es10Preview,
+  jsconf2020
 ], loadLikes())
 
 export default index;
