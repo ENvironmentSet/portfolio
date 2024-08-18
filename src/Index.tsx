@@ -202,8 +202,6 @@ const IndexStyle = {
   page: css`
     height: 100%;
     
-    position: relative;
-    
     display: flex;
     flex-direction: column;
   `,
@@ -322,7 +320,7 @@ const IndexStyle = {
     }
         
     @media (min-width: 1024px) {
-      position: absolute;
+      position: fixed;
       top: 5.5rem;
       
       padding: 1.5rem 1.5rem;

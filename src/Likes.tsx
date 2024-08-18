@@ -58,7 +58,7 @@ const LikesStyle = {
     }
   `,
   navBar: css`
-    position: absolute;
+    position: fixed;
     top: 5.5rem;
     left: 0;
       

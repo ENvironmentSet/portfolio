@@ -157,7 +157,7 @@ const DetailStyle = {
     width: 1.5rem;
   `,
   sideNavBar: css`
-    position: absolute;
+    position: fixed;
     top: 5.5rem;
     left: 0;
       
