@@ -323,6 +323,8 @@ function Detail({ id: currentContentId, title, thumbnail, categories, content, p
   const { contents, setContents } = useContext(Contents)
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+
     if (thumbnailRef.current) {
       const observer = new IntersectionObserver(
         entries => entries.map(({ intersectionRatio }) => setThumbnailVisibility(intersectionRatio <= 0.25)),
