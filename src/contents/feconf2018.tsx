@@ -46,7 +46,7 @@ const feconf2018: Content = {
   title: 'TC39 스펙에 대한 주관적 참견 시점',
   thumbnail: feconf2018Thumbnail,
   categories: ['javascript', 'specification'],
-  description: '자바스크립트 명세 기여를 주제로 한 FEConf 2018에서의 발표',
+  description: '자바스크립트 명세 기여를 주제로 FEConf 2018에서 발표',
   filterTags: [FilterTags.ALL, FilterTags.OSS],
   content: <Feconf2018Content/>,
   isLiked: false

@@ -28,7 +28,7 @@ const jsconf2020: Content = {
   title: '코드 인수분해 -- 보일러플레이트 코드 정리하기',
   thumbnail: jsconf2020Thumbnail,
   categories: ['functional programming'],
-  description: 'JSConf Korea 2020에서 보일러플레이트 코드를 정리하는 방법으로 함수형 프로그래밍을 소개했습니다.',
+  description: 'JSConf Korea 2020에서 보일러플레이트 코드를 정리하는 방법으로 함수형 프로그래밍을 소개',
   filterTags: [FilterTags.ALL],
   content: <Jsconf2020Content/>,
   isLiked: false
