@@ -25,7 +25,7 @@ const overcurried: Content = {
   categories: ['blog'],
   stars: 13,
   description: '개인 개발 블로그',
-  filterTags: [FilterTags.ALL, FilterTags.TS, FilterTags.OSS, FilterTags.React],
+  filterTags: [FilterTags.ALL, FilterTags.TS, FilterTags.React],
   content: <OvercurriedContent />,
   playground: 'https://overcurried.com',
   isLiked: false
