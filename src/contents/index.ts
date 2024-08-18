@@ -8,6 +8,7 @@ import oversomething from './oversomething.tsx'
 import tsTransformerTyperep from './ts-transformer-typerep.tsx'
 import esone from './esone.tsx'
 import heavenlyCocktail from './heavenly-cocktail.tsx'
+import emotion3232 from './emotion3232.tsx'
 
 const index: Content[] = applyLikes([
   hyogwa,
@@ -16,7 +17,8 @@ const index: Content[] = applyLikes([
   lambda2wasm,
   overcurried,
   oversomething,
-  heavenlyCocktail
+  heavenlyCocktail,
+  emotion3232
 ], loadLikes())
 
 export default index;
