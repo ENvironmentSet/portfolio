@@ -37,7 +37,7 @@ const es10Preview: Content = {
   title: 'ES10 미리보기',
   thumbnail: es10Thumbnail,
   categories: ['javascript', 'specification'],
-  description: '\'프론트엔드와 무관합니다만, \' 행사에서 ECMAScript 10의 새 표준을 소개했습니다.',
+  description: '\'프론트엔드와 무관합니다만, \' 행사에서 ECMAScript 10의 새 표준을 소개',
   filterTags: [FilterTags.ALL],
   content: <Es10PreviewContent />,
   isLiked: false
