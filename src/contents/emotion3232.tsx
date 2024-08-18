@@ -19,7 +19,7 @@ function Emotion3232Content() {
 }
 
 const emotion3232: Content = {
-  id: 'emotion#3232',
+  id: 'emotion-3232',
   title: 'emotion#3232',
   thumbnail: emotion3232Thumbnail,
   categories: ['jsx transformation', 'contribution'],
