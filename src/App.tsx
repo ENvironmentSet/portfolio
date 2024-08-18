@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Switch, Route, Redirect } from 'wouter'
+import { Worker } from '@react-pdf-viewer/core'
 import Index from './Index'
 import Detail from './Detail.tsx'
 import Likes, { persistLikes } from './Likes.tsx'
@@ -49,7 +50,7 @@ function App() {
   const [contents, setContents] = useState(index)
 
   return (
-    <>
+    <Worker workerUrl='https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js'>
       <Contents.Provider value={{ contents, setContents: contents => { persistLikes(contents); setContents(contents) } }}>
         <Global
           styles={globalStyle}
@@ -72,7 +73,7 @@ function App() {
           <Route> <Redirect to='/' /> </Route>
         </Switch>
       </Contents.Provider>
-    </>
+    </Worker>
   )
 }
 

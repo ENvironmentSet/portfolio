@@ -1,4 +1,4 @@
-import { Worker, Viewer, SpecialZoomLevel } from '@react-pdf-viewer/core'
+import { Viewer, SpecialZoomLevel } from '@react-pdf-viewer/core'
 
 import { Content } from './content.ts'
 import { FilterTags } from '../Index.tsx'
@@ -59,12 +59,10 @@ function HeavenlyCocktailContent() {
             height: 30rem;
           }
         `}>
-          <Worker workerUrl='https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js'>
-            <Viewer
-              fileUrl={presentation}
-              defaultScale={SpecialZoomLevel.PageFit}
-            />
-          </Worker>
+          <Viewer
+            fileUrl={presentation}
+            defaultScale={SpecialZoomLevel.PageFit}
+          />
         </div>
       </section>
 
