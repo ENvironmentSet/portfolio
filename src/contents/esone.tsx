@@ -25,12 +25,12 @@ function EsoneContent() {
           모든 함수가 순수하면서 동작을 설명하기에 적절한 타입을 부여받았기에 타입 주도 개발이라고도 알려진 이 접근법을 효과적으로 적용할 수 있었습니다.
         </li>
         <li>
-          직접 설계한 파서 컴비네이터로 파서를 구현했습니다.
+          <a href='https://github.com/ENvironmentSet/esone/blob/master/src/Parser/Parser.ts'>직접 설계한 파서 컴비네이터</a>로 파서를 구현했습니다.
           파서를 조합하여 파서를 구성하는 방법으로 코드 중복을 상당 부분 줄일 수 있었습니다.
         </li>
         <li>
-          Continuation에 기반한 실행 모델을 고안해 의미론을 기술했습니다.
-          실행 중단과 같은 다양한 의미를 기술할 수 있었을뿐더러, 실행 모델 합성을 통해 코드 중복을 줄일 수 있었습니다.
+          <a href='https://github.com/ENvironmentSet/esone/blob/master/src/Evaluator/Runtime/Runtime.ts'>Continuation에 기반한 실행 모델</a>을 고안해 의미론을 기술했습니다.
+          <a href='https://github.com/ENvironmentSet/esone/blob/master/src/Evaluator/Runtime/Runtime.ts#L31'>실행 중단과 같은 다양한 의미</a>를 기술할 수 있었을뿐더러, <a href='https://github.com/ENvironmentSet/esone/blob/master/src/Evaluator/Statement/compileIf.ts'>실행 모델 합성</a>을 통해 코드 중복을 줄일 수 있었습니다.
         </li>
         <li>
           복잡한 연산을 표현해야 할 때는 모나드 변환자를 사용해 대응하는 모나드를 만들었습니다.
