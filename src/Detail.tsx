@@ -128,6 +128,9 @@ interface DetailProps {
 const DetailStyle = {
   page: css`
     height: 100%;
+    
+    display: flex;
+    flex-direction: column;
   `,
   header: css`
     position: fixed;
@@ -210,6 +213,7 @@ const DetailStyle = {
     
     @media (min-width: 1024px) {
       height: auto;
+      flex-grow: 1;
       
       padding: 0 20%;
     }
