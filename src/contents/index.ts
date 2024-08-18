@@ -18,8 +18,8 @@ import haskellForProgrammers from './haskell-for-programmers.tsx'
 
 const index: Content[] = applyLikes([
   hyogwa,
-  tsTransformerTyperep,
   esone,
+  tsTransformerTyperep,
   lambda2wasm,
   overcurried,
   oversomething,
@@ -27,10 +27,10 @@ const index: Content[] = applyLikes([
   emotion3232,
   refsAndTheDom,
   ecma262,
-  feconf2018,
-  es10Preview,
   jsconf2020,
-  haskellForProgrammers
+  feconf2018,
+  haskellForProgrammers,
+  es10Preview
 ], loadLikes())
 
 export default index;
